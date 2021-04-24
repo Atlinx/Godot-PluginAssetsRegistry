@@ -8,14 +8,30 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "PluginAssetsRegistry",
+"language": "GDScript",
+"path": "res://plugin_assets_registry.gd"
+}, {
+"base": "Control",
+"class": "PluginUI",
+"language": "GDScript",
+"path": "res://addons/demo_plugin/plugin_ui.gd"
+} ]
+_global_script_class_icons={
+"PluginAssetsRegistry": "",
+"PluginUI": ""
+}
+
 [application]
 
-config/name="GDEditorAssetScaler"
+config/name="Godot-PluginAssetsRegistry"
 config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/editor_asset_scaler_tester/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/demo_plugin/plugin.cfg" )
 
 [physics]
 

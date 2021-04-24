@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/demo_plugin/assets/Hack-Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/demo_plugin/plugin_ui.gd" type="Script" id=2]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 700 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+custom_label_paths = [ NodePath("PanelContainer/VBoxContainer/CustomLabel"), NodePath("PanelContainer/VBoxContainer/CustomLabel3"), NodePath("PanelContainer/VBoxContainer/CustomLabel5") ]
+button_paths = [ NodePath("PanelContainer/VBoxContainer/OptionButton"), NodePath("PanelContainer/VBoxContainer/OptionButton2"), NodePath("PanelContainer/VBoxContainer/ToolButton"), NodePath("PanelContainer/VBoxContainer/ToolButton2"), NodePath("PanelContainer/VBoxContainer/ToolButton3"), NodePath("PanelContainer/VBoxContainer/CheckBox"), NodePath("PanelContainer/VBoxContainer/CheckBox2"), NodePath("PanelContainer/VBoxContainer/CheckBox3") ]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 693.0
+
+[node name="CustomLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "234234234234"
+
+[node name="CustomLabel3" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 1010.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 1 )
+text = "234234234234"
+
+[node name="CustomLabel5" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 1010.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "234234234234"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 69.0
+margin_right = 1010.0
+margin_bottom = 83.0
+text = "Test"
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 1010.0
+margin_bottom = 101.0
+text = "Test"
+
+[node name="Label6" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 105.0
+margin_right = 1010.0
+margin_bottom = 119.0
+text = "Test"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer"]
+margin_top = 123.0
+margin_right = 1010.0
+margin_bottom = 143.0
+text = "Option Button"
+
+[node name="OptionButton2" type="OptionButton" parent="PanelContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 1010.0
+margin_bottom = 167.0
+text = "Option Button"
+
+[node name="ToolButton" type="ToolButton" parent="PanelContainer/VBoxContainer"]
+margin_top = 171.0
+margin_right = 1010.0
+margin_bottom = 193.0
+text = "Tool Button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolButton2" type="ToolButton" parent="PanelContainer/VBoxContainer"]
+margin_top = 197.0
+margin_right = 1010.0
+margin_bottom = 219.0
+text = "Tool Button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolButton3" type="ToolButton" parent="PanelContainer/VBoxContainer"]
+margin_top = 223.0
+margin_right = 1010.0
+margin_bottom = 245.0
+text = "Tool Button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer"]
+margin_top = 249.0
+margin_right = 1010.0
+margin_bottom = 273.0
+text = "CheckBox"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/VBoxContainer"]
+margin_top = 277.0
+margin_right = 1010.0
+margin_bottom = 301.0
+text = "CheckBox"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/VBoxContainer"]
+margin_top = 305.0
+margin_right = 1010.0
+margin_bottom = 329.0
+text = "CheckBox"
+__meta__ = {
+"_edit_use_anchors_": false
+}

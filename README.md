@@ -1,6 +1,6 @@
 # PluginAssetsRegistry
 
-A GDScript that scales assets used by plugins (like images and fonts) automatically based on the editor's current scale.
+A GDScript that scales assets used by plugins (like images and fonts) automatically based on the editor's current UI scale.
 
 This script keeps a record of all loaded assets and does not duplicate the same asset more than once, which saves on memory.
 

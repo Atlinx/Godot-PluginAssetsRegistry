@@ -1,4 +1,4 @@
-# PluginAssetsRegistry
+# Godot Plugin Assets Registry
 
 A GDScript that scales assets used by plugins (like images and fonts) automatically based on the editor's current UI scale.
 

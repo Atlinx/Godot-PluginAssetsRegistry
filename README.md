@@ -51,6 +51,43 @@ var assets_registry = PluginAssetsRegistry.new(self)
 
 - Loads a scaled asset using an already loaded asset
 
-## Recommendations
+## Recommended Use
 
-You should create a `_setup_editor_assets(asset_registry)` function in all the node you wish to use scaled assets and then have the plugin.gd script call `_setup_editor_assets` on with the `assets_registry` as the argument. This way lets each script load the assets they need since they have access to the `PluginAssetsRegistry` instance.
+You should create a `_setup_editor_assets(asset_registry)` function in all the node you wish to use scaled assets and then have the plugin.gd script call `_setup_editor_assets` on those nodes, with the `assets_registry` as the argument. This lets each script load the assets they need since they have access to the `PluginAssetsRegistry` instance.
+
+ie.
+```GDScript
+# Inside "plugin.gd"
+
+extends EditorPlugin
+
+var assets_registry = PluginAssetsRegistry.new(self)
+var plugin_ui : PluginUI
+
+...
+
+func _ready():
+   plugin_ui._setup_editor_assets(assets_registry)
+  
+...
+```
+ 
+```GDScript
+# Inside "plugin_ui.gd"
+
+class_name PluginUI
+extends Control
+
+var label: Label
+var custom_button: CustomUISection
+
+...
+
+func _setup_editor_assets(assets_registry):
+   label.add_font_override("font", assets_registry.load_asset("assets/fonts/my_font.tres"))
+
+   # Chaining the _setup_editor_assets to child nodes
+   CustomUISection._setup_editor_assets(assets_registry)
+
+...
+```

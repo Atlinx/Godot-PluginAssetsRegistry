@@ -12,7 +12,7 @@ var plugin: EditorPlugin
 # do not duplicate the same asset multiple times.  
 var loaded_editor_assets: Dictionary
 
-func _init(plugin_: EditorPlugin = null):
+func _init(plugin_ = null):
 	plugin = plugin_
 
 # Returns an asset scaled to fit the current editor's UI scale

@@ -12,7 +12,7 @@ var plugin: EditorPlugin
 # do not duplicate the same asset multiple times.  
 var loaded_editor_assets: Dictionary
 
-func _init(plugin_: EditorPlugin):
+func _init(plugin_: EditorPlugin == null):
 	plugin = plugin_
 
 # Returns an asset scaled to fit the current editor's UI scale
@@ -50,4 +50,6 @@ func _load_scaled_font(font: Font) -> DynamicFont:
 	return duplicate
 	
 func get_editor_scale():
+	if plugin == null:
+		return 1
 	return plugin.get_editor_interface().get_editor_scale()

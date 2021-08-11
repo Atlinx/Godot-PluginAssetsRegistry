@@ -1,10 +1,11 @@
-# Repo: https://github.com/Atlinx/Godot-PluginAssetsRegistry
-
 class_name PluginAssetsRegistry
 extends Reference
+# Stores and scales editor related UI assets according to the user's editor scale.
+# Repo: https://github.com/Atlinx/Godot-PluginAssetsRegistry
+
 
 # Replace 'demo_plugin' with your plugin's name
-const PLUGIN_ABSOLUTE_PATH_PREFIX = "res://addons/WAT/"
+const PLUGIN_ABSOLUTE_PATH_PREFIX = "res://addons/demo_plugin/"
 
 var plugin
 
@@ -70,7 +71,8 @@ func get_editor_scale():
 				_cached_editor_scale = _calculate_current_editor_scale_3_0()
 		return _cached_editor_scale
 	else:
-		push_error("AssetsRegistry is not supported for version: " % str(Engine.get_version_info()))
+		push_error("AssetsRegistry is not supported for version: " % Engine.get_version_info().string)
+		return 1
 
 
 func _calculate_current_editor_scale_3_1():
@@ -103,6 +105,7 @@ func _calculate_current_editor_scale_3_1():
 			return 2.0
 		_:
 			return custom_display_scale
+
 
 func _calculate_current_editor_scale_3_0():
 	var editor_settings = plugin.get_editor_interface().get_editor_settings()

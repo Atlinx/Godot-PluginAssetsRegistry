@@ -15,8 +15,10 @@ var loaded_editor_assets: Dictionary
 # Only used by pre 3.3 Godot editors
 var _cached_editor_scale = -1
 
+
 func _init(plugin_ = null):
 	plugin = plugin_
+
 
 # Returns an asset scaled to fit the current editor's UI scale
 # Can load scaled asset with a string using the plugin folder as the root older
@@ -37,6 +39,7 @@ func load_asset(asset):
 				return loaded_editor_assets[asset]
 			assert(false, "Cannot scale asset of type " + asset.get_class())
 
+
 func _load_scaled_texture(texture: Texture) -> Texture:
 	# get_data already returns a copy, therefore no need to duplicate
 	var image = texture.get_data()
@@ -47,23 +50,28 @@ func _load_scaled_texture(texture: Texture) -> Texture:
 	
 	return scaled_texture 
 
+
 func _load_scaled_font(font: Font) -> DynamicFont:
 	var duplicate = font.duplicate()
 	duplicate.size *= get_editor_scale()
 	return duplicate
+
 
 func get_editor_scale():
 	if plugin == null:
 		return 1
 	if Engine.get_version_info().major > 3 or (Engine.get_version_info().major == 3 and Engine.get_version_info().minor >= 3):
 		return plugin.get_editor_interface().get_editor_scale()
-	else:
+	elif Engine.get_version_info().major == 3:
 		if _cached_editor_scale == -1:
 			if Engine.get_version_info().minor >= 1:
 				_cached_editor_scale = _calculate_current_editor_scale_3_1()
 			else:
 				_cached_editor_scale = _calculate_current_editor_scale_3_0()
 		return _cached_editor_scale
+	else:
+		push_error("AssetsRegistry is not supported for version: " % str(Engine.get_version_info()))
+
 
 func _calculate_current_editor_scale_3_1():
 	var editor_settings = plugin.get_editor_interface().get_editor_settings()

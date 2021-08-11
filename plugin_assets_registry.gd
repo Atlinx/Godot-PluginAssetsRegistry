@@ -58,9 +58,9 @@ func _load_scaled_font(font: Font) -> DynamicFont:
 	return duplicate
 
 
-func get_editor_scale():
+func get_editor_scale() -> float:
 	if plugin == null:
-		return 1
+		return 1.0
 	if Engine.get_version_info().major > 3 or (Engine.get_version_info().major == 3 and Engine.get_version_info().minor >= 3):
 		return plugin.get_editor_interface().get_editor_scale()
 	elif Engine.get_version_info().major == 3:
@@ -72,10 +72,10 @@ func get_editor_scale():
 		return _cached_editor_scale
 	else:
 		push_error("AssetsRegistry is not supported for version: " % Engine.get_version_info().string)
-		return 1
+		return 1.0
 
 
-func _calculate_current_editor_scale_3_1():
+func _calculate_current_editor_scale_3_1() -> float:
 	var editor_settings = plugin.get_editor_interface().get_editor_settings()
 	
 	var display_scale: int = editor_settings.get_setting("interface/editor/display_scale")
@@ -107,7 +107,7 @@ func _calculate_current_editor_scale_3_1():
 			return custom_display_scale
 
 
-func _calculate_current_editor_scale_3_0():
+func _calculate_current_editor_scale_3_0() -> float:
 	var editor_settings = plugin.get_editor_interface().get_editor_settings()
 	
 	var dpi_mode = editor_settings.get_settings("interface/editor/hidpi_mode")
@@ -127,3 +127,5 @@ func _calculate_current_editor_scale_3_0():
 			return 1.5
 		4:
 			return 2.0
+		_:
+			return 1.0
